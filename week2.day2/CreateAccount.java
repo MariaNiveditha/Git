@@ -1,5 +1,7 @@
 package week2.day1;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -22,17 +24,23 @@ public class CreateAccount {
 		//Click on the "CRM/SFA" link
 		driver.findElement(By.linkText("CRM/SFA")).click();
 		
+		//Add wait time for 60 seconds
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		
 		//Click on the "Accounts" button.
 		driver.findElement(By.linkText("Accounts")).click();
+		
+		//Add wait time for 60 seconds
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		
 		//Click on the "Create Account" button.
 		driver.findElement(By.linkText("Create Account")).click();
 		
 		//Enter an account name
-		driver.findElement(By.id("accountName")).sendKeys("Selenium Automation_mn");
+		driver.findElement(By.id("accountName")).sendKeys("Selenium Automation_mnc");
 		
 		//Enter a description as "Selenium Automation Tester
-		//driver.findElement(By.name("description")).sendKeys("Selenium Automation Tester");
+		driver.findElement(By.xpath("//textarea[@name='description']")).sendKeys("Selenium Automation Tester");
 		
 		//Select "ComputerSoftware" as the industry
 		WebElement	industryDropdown = driver.findElement(By.name("industryEnumId"));
@@ -62,8 +70,10 @@ public class CreateAccount {
 		//Click the "Create Account" button
 		driver.findElement(By.className("smallSubmit")).click();
 		
+		//Add wait time for 200 seconds
+		driver.manage().timeouts().implicitlyWait(200, TimeUnit.SECONDS);
 		//Close Browser
-		driver.close();
+		//driver.close();
 	}
 
 }
