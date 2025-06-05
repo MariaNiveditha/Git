@@ -1,5 +1,7 @@
 package week2.day2;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -19,8 +21,8 @@ public class FacebookSignup {
 		//Click create new account button
 		driver.findElement(By.linkText("Create new account")).click();
 		
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2)); //Didn't work
-		
+		//Add wait time for 60 seconds
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		
 		
 		//Enter First name and last name
